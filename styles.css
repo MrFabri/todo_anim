@@ -1,0 +1,252 @@
+* {
+    /* font-family: 'Poppins', sans-serif; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: linear-gradient(#ceb3b8, #f592a2);
+    color: white;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    width: 50rem;
+    height: auto;
+    margin: 0 auto 0 auto;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 3px 0 rgb(32 33 36 / 28%);
+    transform: translateY(1rem);
+    border-radius: .4rem;
+}
+
+header, form, .todo-container, .alert_msg{
+    min-height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header > h1 {
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: fadeinonly 1s .6s forwards;
+}
+header > p {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeinonly 1s .7s forwards;
+}
+
+.alert_msg_cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.alert_msg {
+    display: none;
+    min-height: 0;
+    padding: 0.6rem;
+    color: rgb(217, 32, 32);
+    border-radius: 4px;
+    background-color: white;
+    font-size: .8rem;
+    font-style: italic;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.alert_msg_display {
+    display: block;
+}
+
+header { 
+    flex-direction: column;
+}
+
+.todo-container {
+    min-height: auto;
+    align-items: flex-start;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+/* INPUT +  BUTTON */
+
+.todo-input, .todo-button {
+    padding: 0.5rem;    
+    font-size: 2rem;
+    border: none;
+    background-color: white;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid rgb(108, 104, 104);
+    opacity: 0;
+    animation: fadeinonly 1s .8s forwards;
+}
+
+.todo-button {
+    margin-left: 0.5rem;
+    color: rgb(222, 156, 156);
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.todo-button:hover {
+    background-color: rgb(222, 156, 156);
+    color: white;
+}
+
+
+/* Todo list */
+.todo-list {
+    list-style: none;
+    width: auto;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.todo {
+    margin: 0.5rem;
+    background-color: white;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+    border-radius: 4px 5px 5px 4px;
+}
+
+.todo-item {
+    flex: 1;
+    padding: 0 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+}
+
+.todo-item:hover {
+    text-decoration: line-through;
+}
+
+.trash-btn, 
+.complete-btn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(222, 156, 156);
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* .complete-btn{
+    background-color: rgb(255, 255, 255);
+} */
+
+.fa-trash,
+.fa-check{
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+footer {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fadeinonly 1s .9s forwards;
+}
+
+footer > p {
+    width: 100%;
+    text-align: center;
+    padding: 3.5rem 0 1.5rem 0;
+    font-family: sans-serif;
+}
+
+footer a{
+    color: rgb(226, 122, 122);
+}
+
+/* Animations */
+
+.appear {
+    animation: appear .7s ease-out;
+}
+
+.blink {
+    animation: blinker .3s linear 2;
+}
+
+.fadein {
+    animation: fadein .5s ease-in-out;
+}
+
+.fadeout {
+    animation: fadeout .5s ease-in;
+}
+@keyframes appear {
+    0% {
+        transform: translateY(-2rem);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(6rem);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(1rem);
+        opacity: 1;
+    }
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+
+@keyframes fadein {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeinonly {
+    form { opacity: 0; }
+    to   { opacity: 1; }
+}
+
